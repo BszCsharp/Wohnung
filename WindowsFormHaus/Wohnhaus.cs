@@ -2,18 +2,24 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Collections;
 
 namespace WindowsFormHaus
 {
     public class Wohnhaus
     {
-        private String[] wohnungen = new String[6];
+        //private String[] wohnungen = new String[6];
+        // Version 2:: container durch ArrayList ersetzen
+        private ArrayList wohnungen = new ArrayList();
+        private int anzahlWohnungen;
         private Int32 count = 0;
-        public Wohnhaus()
+        public Wohnhaus(int anzahl)
         {
-            for(int i = 0; i < 6; i++)
+            this.anzahlWohnungen = anzahl;
+            for(int i = 0; i < this.anzahlWohnungen; i++)
             {
-                wohnungen[i] = "none";
+                wohnungen.Add("none");
+                //this.wohnungen[i] = "none";
             }
         }
         public Int32 Count
@@ -26,9 +32,9 @@ namespace WindowsFormHaus
         {
             Boolean result = true;
             if (Count == 6) result = false;
-            for(int i = 0; i < 6 && result == true;i++)
+            for(int i = 0; i < anzahlWohnungen && result == true;i++)
             {
-                if(wohnungen[i] == neuerMieter)
+                if(Convert.ToString(wohnungen[i]) ==  neuerMieter)
                 {
                     result = false;
                     break;
@@ -37,11 +43,12 @@ namespace WindowsFormHaus
             if(result == true )
             {
                 Count++;
-                for(int i = 0; i < 6;i++)
+                for(int i = 0; i < anzahlWohnungen; i++)
                 {
-                    if(wohnungen[i] == "none")
+                    if( Convert.ToString( wohnungen[i]) == "none")
                     {
                         wohnungen[i] = neuerMieter;
+                        break;
                     }
                 }
             }
@@ -50,9 +57,9 @@ namespace WindowsFormHaus
         public Boolean Ausziehen(String mieter)
         {
             Boolean result = false;
-            for(int i = 0; i < Count; i++)
+            for(int i = 0; i < anzahlWohnungen; i++)
             {
-                if(this.wohnungen[i] == mieter)
+                if( Convert.ToString(this.wohnungen[i]) == mieter)
                 {
                     this.wohnungen[i] = "none";
                     Count--;
