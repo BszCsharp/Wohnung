@@ -7,13 +7,13 @@ namespace WindowsFormHaus
 {
     public class Wohnhaus
     {
-        private String[] wohnung = new String[6];
+        private String[] wohnungen = new String[6];
         private Int32 count = 0;
         public Wohnhaus()
         {
             for(int i = 0; i < 6; i++)
             {
-                wohnung[i] = "none";
+                wohnungen[i] = "none";
             }
         }
         public Int32 Count
@@ -28,7 +28,7 @@ namespace WindowsFormHaus
             if (Count == 6) result = false;
             for(int i = 0; i < 6 && result == true;i++)
             {
-                if(wohnung[i] == neuerMieter)
+                if(wohnungen[i] == neuerMieter)
                 {
                     result = false;
                     break;
@@ -39,9 +39,9 @@ namespace WindowsFormHaus
                 Count++;
                 for(int i = 0; i < 6;i++)
                 {
-                    if(wohnung[i] == "none")
+                    if(wohnungen[i] == "none")
                     {
-                        wohnung[i] = neuerMieter;
+                        wohnungen[i] = neuerMieter;
                     }
                 }
             }
@@ -52,9 +52,9 @@ namespace WindowsFormHaus
             Boolean result = false;
             for(int i = 0; i < Count; i++)
             {
-                if(this.wohnung[i] == mieter)
+                if(this.wohnungen[i] == mieter)
                 {
-                    this.wohnung[i] = "none";
+                    this.wohnungen[i] = "none";
                     Count--;
                     result = true;
                 }
