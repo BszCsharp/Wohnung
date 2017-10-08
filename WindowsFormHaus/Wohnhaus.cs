@@ -21,6 +21,8 @@ namespace WindowsFormHaus
                 wohnungen.Add("none");
                 //this.wohnungen[i] = "none";
             }
+            
+            
         }
         public Int32 Count
         {

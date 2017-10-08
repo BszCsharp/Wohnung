@@ -21,8 +21,11 @@ namespace WindowsFormHaus
         private void buttonAdd_Click(object sender, EventArgs e)
         {
             String nm = textBoxNeuerMieter.Text;
-            wohnaus.Einziehen(nm);
-            textBoxAnzahl.Text = wohnaus.Count.ToString();
+            if(wohnaus.Einziehen(nm))
+            {
+                textBoxAnzahl.Text = wohnaus.Count.ToString();
+            }
+            
            
         }
 
