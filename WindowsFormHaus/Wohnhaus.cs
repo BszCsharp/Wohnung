@@ -11,7 +11,8 @@ namespace WindowsFormHaus
         //private String[] wohnungen = new String[6];
         // Version 2:: container durch ArrayList ersetzen
         //private ArrayList wohnungen = new ArrayList();
-        private List<String> wohnungen = new List<string>();
+        //private List<String> wohnungen = new List<string>();
+        private List<Wohneinheit> wohnungen = new List<Wohneinheit>();
         private int anzahlWohnungen;
         private Int32 count = 0;
         public Wohnhaus(int anzahl)
@@ -19,8 +20,16 @@ namespace WindowsFormHaus
             this.anzahlWohnungen = anzahl;
             for(int i = 0; i < this.anzahlWohnungen; i++)
             {
-                wohnungen.Add("none");
+                //wohnungen.Add("none");
                 //this.wohnungen[i] = "none";
+                Wohneinheit wh = new Wohneinheit();
+                wh.Preis = 800;
+                wh.Groesse = 120;
+                wh.Lage = String.Empty;
+                wh.Mieter = "none";
+
+                wohnungen.Add(wh);
+                
             }
             
             
@@ -45,9 +54,9 @@ namespace WindowsFormHaus
             //}
             if(result == true)
             {
-                foreach(String s in wohnungen)
+                foreach(Wohneinheit w in wohnungen)
                 {
-                    if(s == neuerMieter )
+                    if(w.Mieter == neuerMieter )
                     {
                         result = false;
                         break;
@@ -60,9 +69,9 @@ namespace WindowsFormHaus
                 Count++;
                 for(int i = 0; i < anzahlWohnungen; i++)
                 {
-                    if( Convert.ToString( wohnungen[i]) == "none")
+                    if(  wohnungen[i].Mieter == "none")
                     {
-                        wohnungen[i] = neuerMieter;
+                        wohnungen[i].Mieter = neuerMieter;
                         break;
                     }
                 }
@@ -76,7 +85,7 @@ namespace WindowsFormHaus
             {
                 if (Convert.ToString(this.wohnungen[i]) == mieter)
                 {
-                    this.wohnungen[i] = "none";
+                    this.wohnungen[i].Mieter = "none";
                     Count--;
                     result = true;
 

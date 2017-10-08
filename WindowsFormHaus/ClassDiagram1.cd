@@ -1,10 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="WindowsFormHaus.Wohnhaus">
-    <Position X="1.5" Y="0.75" Width="3" />
+    <Position X="0.5" Y="0.75" Width="3" />
     <TypeIdentifier>
-      <HashCode>AAAAQABAAAAAAAAABAAAAAQAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAQABAAAAAAAAABAAAAAwAAAAAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Wohnhaus.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WindowsFormHaus.Wohneinheit">
+    <Position X="5" Y="0.75" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAgAAAAAAAAAQAAAAEAQAAAAEAAQAAAAEAAAA=</HashCode>
+      <FileName>Wohneinheit.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
