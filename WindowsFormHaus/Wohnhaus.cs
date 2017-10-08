@@ -10,7 +10,8 @@ namespace WindowsFormHaus
     {
         //private String[] wohnungen = new String[6];
         // Version 2:: container durch ArrayList ersetzen
-        private ArrayList wohnungen = new ArrayList();
+        //private ArrayList wohnungen = new ArrayList();
+        private List<String> wohnungen = new List<string>();
         private int anzahlWohnungen;
         private Int32 count = 0;
         public Wohnhaus(int anzahl)
@@ -34,14 +35,26 @@ namespace WindowsFormHaus
         {
             Boolean result = true;
             if (Count == 6) result = false;
-            for(int i = 0; i < anzahlWohnungen && result == true;i++)
+            //for(int i = 0; i < anzahlWohnungen && result == true;i++)
+            //{
+            //    if(Convert.ToString(wohnungen[i]) ==  neuerMieter)
+            //    {
+            //        result = false;
+            //        break;
+            //    }
+            //}
+            if(result == true)
             {
-                if(Convert.ToString(wohnungen[i]) ==  neuerMieter)
+                foreach(String s in wohnungen)
                 {
-                    result = false;
-                    break;
+                    if(s == neuerMieter )
+                    {
+                        result = false;
+                        break;
+                    }
                 }
             }
+            
             if(result == true )
             {
                 Count++;
@@ -59,15 +72,17 @@ namespace WindowsFormHaus
         public Boolean Ausziehen(String mieter)
         {
             Boolean result = false;
-            for(int i = 0; i < anzahlWohnungen; i++)
+            for (int i = 0; i < anzahlWohnungen; i++)
             {
-                if( Convert.ToString(this.wohnungen[i]) == mieter)
+                if (Convert.ToString(this.wohnungen[i]) == mieter)
                 {
                     this.wohnungen[i] = "none";
                     Count--;
                     result = true;
+
                 }
             }
+
             return result;
         }
 

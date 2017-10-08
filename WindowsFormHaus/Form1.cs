@@ -20,10 +20,18 @@ namespace WindowsFormHaus
 
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            String nm = textBoxNeuerMieter.Text;
-            if(wohnaus.Einziehen(nm))
+            String nm = textBoxNeuerMieter.Text; 
+            if(wohnaus.Count >= 6)
+            {
+                MessageBox.Show("Haus voll");
+            }
+            else if(wohnaus.Einziehen(nm))
             {
                 textBoxAnzahl.Text = wohnaus.Count.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Mieter schon vorhanden");
             }
             
            
@@ -31,8 +39,11 @@ namespace WindowsFormHaus
 
         private void buttonRemove_Click(object sender, EventArgs e)
         {
-            wohnaus.Ausziehen(textBoxAuszug.Text);
-            textBoxAnzahl.Text = wohnaus.Count.ToString();
+            if(wohnaus.Ausziehen(textBoxAuszug.Text))
+            {
+                textBoxAnzahl.Text = wohnaus.Count.ToString();
+            }
+            
         }
     }
 }
