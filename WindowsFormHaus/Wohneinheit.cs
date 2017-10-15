@@ -5,7 +5,7 @@ using System.Text;
 
 namespace WindowsFormHaus
 {
-    internal class Wohneinheit
+    public class Wohneinheit
     {
         private decimal preis;
         private double groesse;

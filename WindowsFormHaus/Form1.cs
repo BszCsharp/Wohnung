@@ -12,7 +12,7 @@ namespace WindowsFormHaus
 {
     public partial class Form1 : Form
     {
-        Wohnhaus wohnaus = new Wohnhaus(6);
+        Wohnhaus wohnaus = null;
         public Form1()
         {
             InitializeComponent();
@@ -44,6 +44,24 @@ namespace WindowsFormHaus
                 textBoxAnzahl.Text = wohnaus.Count.ToString();
             }
             
+        }
+
+        private void buttonCreateWohnhus_Click(object sender, EventArgs e)
+        {
+            wohnaus = new Wohnhaus(Convert.ToInt32(textBoxAnzahlWE.Text));
+            groupBoxWohneinheit.Enabled = true;
+        }
+
+        private void buttonAddWohneinheit_Click(object sender, EventArgs e)
+        {
+            Wohneinheit wohneinheit = new Wohneinheit();
+            wohneinheit.Preis = Convert.ToDecimal(textBoxPreis.Text);
+            wohneinheit.Lage = textBoxLage.Text;
+            wohneinheit.Groesse =  Convert.ToDouble( textBoxGroesse.Text);
+            wohnaus.AddWohneinheit(wohneinheit);
+
+
+            groupBoxMieter.Enabled = true;
         }
     }
 }

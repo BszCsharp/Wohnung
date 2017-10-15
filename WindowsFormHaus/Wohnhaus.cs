@@ -18,19 +18,19 @@ namespace WindowsFormHaus
         public Wohnhaus(int anzahl)
         {
             this.anzahlWohnungen = anzahl;
-            for(int i = 0; i < this.anzahlWohnungen; i++)
-            {
-                //wohnungen.Add("none");
-                //this.wohnungen[i] = "none";
-                Wohneinheit wh = new Wohneinheit();
-                wh.Preis = 800;
-                wh.Groesse = 120;
-                wh.Lage = String.Empty;
-                wh.Mieter = "none";
+            //for(int i = 0; i < this.anzahlWohnungen; i++)
+            //{
+            //    //wohnungen.Add("none");
+            //    //this.wohnungen[i] = "none";
+            //    Wohneinheit wh = new Wohneinheit();
+            //    wh.Preis = 800;
+            //    wh.Groesse = 120;
+            //    wh.Lage = String.Empty;
+            //    wh.Mieter = "none";
 
-                wohnungen.Add(wh);
+            //    wohnungen.Add(wh);
                 
-            }
+            //}
             
             
         }
@@ -93,6 +93,10 @@ namespace WindowsFormHaus
             }
 
             return result;
+        }
+        public void AddWohneinheit(Wohneinheit wohneinheit)
+        {
+            wohnungen.Add(wohneinheit);
         }
 
 
